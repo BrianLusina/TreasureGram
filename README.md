@@ -90,3 +90,19 @@ def index(request):
 ## Models
 
 This defines the data structure and communicates with the database. It is a good way to organize the data.
+Create your tables here that will define your tables to be mapped with Django's ORM to an SQL database.
+
+
+## The admin
+
+The admin site allows you to perform administrative tasks. These tasks can be performed by authorized users only. To do this you will need to create superusers with this command:
+
+``` bash
+python manage.py createsuperuser
+```
+
+You will then have to enter a username, email and password
+
+After which you can go to `localhost:8000/admin` and log in using your credentials.
+
+After logging in you will not be able to see your models, this is because you have to register them first. The registration is done using `admin.py`
