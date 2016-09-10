@@ -86,3 +86,7 @@ def index(request):
 <p>{{ treasure_name }}</p>
 <p>{{ treasure_val }}</p>
 ```
+
+## Models
+
+This defines the data structure and communicates with the database. It is a good way to organize the data.
