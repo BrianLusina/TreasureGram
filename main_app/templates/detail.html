@@ -1,0 +1,14 @@
+{% load 'staticfiles' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ treasure.name }}</title>
+</head>
+<body>
+<h1>{{ treasure.name }}</h1>
+<img src="{{ treasure.img_url }}">
+<p>{{ treasure.value }}</p>
+<p>{{ treasure.location }}</p>
+</body>
+</html>

@@ -1,22 +1,8 @@
-/* This would be bootstrap-custom.css */
-
-/* ----- Bootstrap Theme ----- */
-
 body {
   background:  #f3e1c5 url(images/brand-bg.jpg) no-repeat center top;
   color: #263d2c;
 }
 
-.container {
-  max-width: 700px;
-  padding-top: 40px;
-}
-
-.navbar {
-  margin-bottom: 0;
-  padding-bottom: 20px;
-  padding-top: 20px;
-}
 
 .navbar-default {
   background: #fdf9f0;

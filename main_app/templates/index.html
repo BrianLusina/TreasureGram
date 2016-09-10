@@ -9,25 +9,28 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
-  <nav class="small-12 columns" role="navigation">
-      <a href="/">
-        <img class="thumbnail" src="{% static 'images/logo.png' %}" height="90">
-      </a>
-  </nav>
 
-  <main class="container container--mw700">
-  {% for treasure in treasures %}
-    <div class="treasure panel panel-default">
+<header>
+    <div class="row">
+      <nav class="small-12 columns" role="navigation">
+          <a href="/">
+            <img class="thumbnail" src="{% static 'images/logo.png' %}" height="90">
+          </a>
+      </nav>
+    </div>
+</header>
 
-      <div class="panel-heading">
-        <h3 class="panel-title">{{ treasure.name }}</h3>
-      </div>
-
-      <div class="panel-body">
-        <div class="treasure-photo">
-          <img src="{{ treasure.img_url }}" height="100">
+  <main class="expanded row">
+      {% for treasure in treasures %}
+      <div class="small-4 columns treasure-card">
+        <div class="row">
+            <h3 class="treasure-title">{{ treasure.name }}</h3>
         </div>
-        <table class="treasure-table">
+        <div class="row">
+            <div class="treasure-photo">
+                <img src="{{ treasure.img_url }}" height="100">
+            </div>
+            <table class="treasure-table">
           <tr>
             <th>
               <img src="{% static 'images/material-icon.png' %}" alt="Material Icon">
@@ -51,7 +54,6 @@
           </tr>
         </table>
       </div>
-
     </div>
   {% endfor %}
 
