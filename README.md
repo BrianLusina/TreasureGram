@@ -1,6 +1,6 @@
 # Treasure Gram
 
-Small Django application
+Small sample Django application on Treasures discovered by some adventurous treasurers.
 
 ## Project Structure
     |--TreasureGram/
