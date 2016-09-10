@@ -8,16 +8,17 @@ def index(request):
 
 
 class Treasures(object):
-    def __init__(self, name, value, material, location):
+    def __init__(self, name, value, material, location, img_url):
         self.name = name
         self.value = value
         self.material = material
         self.location = location
+        self.img_url = img_url
 
 
 treasures = [
-    Treasures("Gold Nugget", 1000, 'gold', 'Curlys creek, NM'),
-    Treasures("Fool's Gold", 0, 'pyrite', "Fool's Falls, CO"),
-    Treasures("Coffee Can", 20, 'tin', 'ACME, CA'),
-    Treasures("Diamond", 5000, 'diamond', 'Peak Valley, NO'),
+    Treasures("Gold Nugget", 1000, 'gold', 'Curlys creek, NM', ''),
+    Treasures("Fool's Gold", 0, 'pyrite', "Fool's Falls, CO", ''),
+    Treasures("Coffee Can", 20, 'tin', 'ACME, CA', ''),
+    Treasures("Diamond", 5000, 'diamond', 'Peak Valley, NO', ''),
 ]
