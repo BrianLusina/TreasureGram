@@ -9,8 +9,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
-  <nav class="navbar navbar-default navbar-static-top text-center" role="navigation">
-      <a href="/"><img src="{% static "images/logo.png" %}" height="90"  ></a>
+  <nav class="small-12 columns" role="navigation">
+      <a href="/">
+        <img class="thumbnail" src="{% static 'images/logo.png' %}" height="90">
+      </a>
   </nav>
 
   <main class="container container--mw700">
@@ -28,21 +30,21 @@
         <table class="treasure-table">
           <tr>
             <th>
-              <img src="{% static "images/material-icon.png" %}" alt="Material Icon">
+              <img src="{% static 'images/material-icon.png' %}" alt="Material Icon">
               Material:
             </th>
             <td>{{ treasure.material }}</td>
           </tr>
           <tr>
             <th>
-              <img src="{% static "images/value-icon.png" %}" alt="Value Icon">
+              <img src="{% static 'images/value-icon.png' %}" alt="Value Icon">
               Value:
             </th>
             <td>${{ treasure.value }}</td>
           </tr>
           <tr>
             <th>
-              <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+              <img src="{% static 'images/location-icon.png' %}" alt="Location Icon">
               Location:
             </th>
             <td>{{ treasure.location }}</td>
