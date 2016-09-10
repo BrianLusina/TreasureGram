@@ -23,6 +23,23 @@ Small sample Django application on Treasures discovered by some adventurous trea
     manage.py
     README.md
     requirements.txt
+## Project Files
+
+1. __manage.py__
+    Command line utility that lets you interact with Django project TreasureGram
+
+2. __TreasureGram/__init__.py__
+    Empty file that tells Python that this directory should be considered a Python package
+    
+3. __TreasureGram/settings.py__
+    Settings for this Django Project
+
+4. __TreasureGram/urls.py__
+    URL declarations for this Django project. A table of contents for Django powered site
+
+5. __TreasureGram/wsgi.py__
+   Entry point for WSGI compatible web servers to save your project
+
 
 ## URL Dispatcher Best Practices
 
