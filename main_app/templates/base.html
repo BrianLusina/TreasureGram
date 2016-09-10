@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TreasureGram</title>
+    <!--Foundation-->
+    <link rel="stylesheet" type="text/css" href="{% static 'foundation.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="row">
+      <nav class="small-12 columns" role="navigation">
+          <a href="/">
+            <img class="thumbnail" src="{% static 'images/logo.png' %}" height="90">
+          </a>
+      </nav>
+    </div>
+</header>
+
+  <footer class="footer container text-center" role="contentinfo">
+  <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
+  © TreasureGram 2016
+  <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
+</footer>
+
+</body>
+</html>
