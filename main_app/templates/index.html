@@ -22,21 +22,21 @@
 
   <main class="expanded row">
       {% for treasure in treasures %}
-      <a href="/{{treasure.id}}/" target="_blank">
-      <div class="small-4 columns treasure-card">
-        <div class="row">
-            <h3 class="treasure-title">{{ treasure.name }}</h3>
-        </div>
-        <div class="row">
-            <div class="treasure-photo">
-                <img src="{{ treasure.img_url }}" height="100">
+      <a href="/{{ treasure.id }}/" target="_blank">
+        <div class="small-4 columns treasure-card">
+            <div class="row">
+                <h3 class="treasure-title">{{ treasure.name }}</h3>
             </div>
-      </div>
-    </div>
+            <div class="row">
+                <div class="treasure-photo">
+                    <img src="{{ treasure.img_url }}" height="100">
+                </div>
+            </div>
+        </div>
       </a>
-  {% endfor %}
-
+      {% endfor %}
   </main>
+
   <footer class="footer container text-center" role="contentinfo">
   <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
   © TreasureGram 2016

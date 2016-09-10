@@ -12,5 +12,5 @@ def index(request):
 # displays the detail view for each treasure
 def detail(request, treasure_id):
     context = {"treasure": Treasures.objects.get(id=treasure_id)}
-    render(request=request, template_name='detail.html', context=context)
+    return render(request=request, template_name='detail.html', context=context)
 
