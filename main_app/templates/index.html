@@ -22,6 +22,7 @@
 
   <main class="expanded row">
       {% for treasure in treasures %}
+      <a href="/{{treasure.id}}/" target="_blank">
       <div class="small-4 columns treasure-card">
         <div class="row">
             <h3 class="treasure-title">{{ treasure.name }}</h3>
@@ -30,31 +31,9 @@
             <div class="treasure-photo">
                 <img src="{{ treasure.img_url }}" height="100">
             </div>
-            <table class="treasure-table">
-          <tr>
-            <th>
-              <img src="{% static 'images/material-icon.png' %}" alt="Material Icon">
-              Material:
-            </th>
-            <td>{{ treasure.material }}</td>
-          </tr>
-          <tr>
-            <th>
-              <img src="{% static 'images/value-icon.png' %}" alt="Value Icon">
-              Value:
-            </th>
-            <td>${{ treasure.value }}</td>
-          </tr>
-          <tr>
-            <th>
-              <img src="{% static 'images/location-icon.png' %}" alt="Location Icon">
-              Location:
-            </th>
-            <td>{{ treasure.location }}</td>
-          </tr>
-        </table>
       </div>
     </div>
+      </a>
   {% endfor %}
 
   </main>

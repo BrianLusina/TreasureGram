@@ -8,7 +8,28 @@
 <body>
 <h1>{{ treasure.name }}</h1>
 <img src="{{ treasure.img_url }}">
-<p>{{ treasure.value }}</p>
-<p>{{ treasure.location }}</p>
+    <table class="treasure-table">
+  <tr>
+    <th>
+      <img src="{% static 'images/material-icon.png' %}" alt="Material Icon">
+      Material:
+    </th>
+    <td>{{ treasure.material }}</td>
+  </tr>
+  <tr>
+    <th>
+      <img src="{% static 'images/value-icon.png' %}" alt="Value Icon">
+      Value:
+    </th>
+    <td>${{ treasure.value }}</td>
+  </tr>
+  <tr>
+    <th>
+      <img src="{% static 'images/location-icon.png' %}" alt="Location Icon">
+      Location:
+    </th>
+    <td>{{ treasure.location }}</td>
+  </tr>
+</table>
 </body>
 </html>
