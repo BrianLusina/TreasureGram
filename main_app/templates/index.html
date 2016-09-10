@@ -1,4 +1,7 @@
+{% extends base.html %}
 {% load staticfiles %}
+
+{% block content %}
   <main class="expanded row">
       {% for treasure in treasures %}
       <a href="/{{ treasure.id }}/" target="_blank">
@@ -15,3 +18,4 @@
       </a>
       {% endfor %}
   </main>
+{% endblock %}
