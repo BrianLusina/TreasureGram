@@ -59,8 +59,30 @@ urlpatterns = [
 ]
 ```
 
+## URL-View Template Process
 
+The client will request for a specific url, the URL dispatcher will match this to a correct view and the *View* will collect needed data and render the *Template*. The Template simply defines the URL to be rendered.
 
-        
-    
-    
+You will need to create a templates directory in every app that you will have in your project.
+First register your app in the projects `settings` file.
+
+In the `settings.py` file, you will find a list called `INSTALLED_APPS`, register your application name there.
+Then render the template in the views like so:
+
+``` python
+# Create your views here.
+def index(request):
+    name = "Gold Nugget"
+    value = 1000.00
+    context = {'treasure_name': name,
+               'treasure_val': value}
+    return render(request=request, template_name="index.html", context=context)
+```
+> this dynamic data(`context`)will be passed to the render function which will pass it to the template.
+ 
+ Access your data like this in the index.html
+``` html
+<h1>TreasureGram</h1>
+<p>{{ treasure_name }}</p>
+<p>{{ treasure_val }}</p>
+```
