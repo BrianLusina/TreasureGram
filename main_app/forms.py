@@ -1,9 +1,24 @@
 from django import forms
+from .models import Treasures
 
 
-class TreasureForm(forms.Form):
-    name = forms.CharField(label="Name", max_length=100)
-    value = forms.DecimalField(label="Value", max_digits=10, decimal_places=2)
-    material = forms.CharField(label="Material", max_length=100)
-    location = forms.CharField(label="Location", max_length=100)
-    img_url = forms.CharField(label="Image URL", max_length=300)
+# using meta class
+class TreasureForm(forms.ModelForm):
+    """
+    Links a form to a model, the class will always be Meta and will be used to link form to the model
+    The HTML form will display labels and input fields for these five fields
+    """
+    class Meta:
+        model = Treasures
+        fields = ['name', 'value', 'material', "location", "img_url"]
+
+
+# subclassing form to Form class
+# class TreasureForm(forms.Form):
+#     name = forms.CharField(label="Name", max_length=100)
+#     value = forms.DecimalField(label="Value", max_digits=10, decimal_places=2)
+#     material = forms.CharField(label="Material", max_length=100)
+#     location = forms.CharField(label="Location", max_length=100)
+#     img_url = forms.CharField(label="Image URL", max_length=300)
+
+
