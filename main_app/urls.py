@@ -10,7 +10,8 @@ urlpatterns = [
 ]
 
 
+# sends any URL that matches media/ to a built in Django view called static.serve
 if settings.DEBUG:
     urlpatterns += [
-        url('^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT})
+        url('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
     ]

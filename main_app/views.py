@@ -20,12 +20,14 @@ def detail(request, treasure_id):
 def post_treasure(request):
     """
     Create a form and link it to the posted data
+    provide form with access to uploaded files to save image
     check if form is valid then clean the data before saving the data in the database
     Redirect to home page even if the form is not valid.
+
     :param request:
     :return:
     """
-    form = TreasureForm(request.POST)
+    form = TreasureForm(request.POST, request.FILES)
     # check if the form is valid
     if form.is_valid():
         # reads all the form data and saves it to the database
