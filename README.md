@@ -40,6 +40,9 @@ Small sample Django application on Treasures discovered by some adventurous trea
 5. __TreasureGram/wsgi.py__
    Entry point for WSGI compatible web servers to save your project
 
+6. __requirements.txt__
+    File outlining all the requirements you will need for the project.
+    To install these requirements run `pip install -r requirements` in your virtual environment
 
 ## URL Dispatcher Best Practices
 
@@ -123,3 +126,4 @@ You will then have to enter a username, email and password
 After which you can go to `localhost:8000/admin` and log in using your credentials.
 
 After logging in you will not be able to see your models, this is because you have to register them first. The registration is done using `admin.py`
+
