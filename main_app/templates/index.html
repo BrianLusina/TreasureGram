@@ -17,5 +17,10 @@
         </div>
       </a>
       {% endfor %}
+      <form action="post_url/" method="post">
+          {% csfr_token %}
+          {{ form }}
+          <input type="submit" value="Submit"/>
+      </form>
   </main>
 {% endblock %}

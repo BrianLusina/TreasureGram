@@ -6,7 +6,8 @@ from .forms import TreasureForm
 # home page for the main app
 def index(request):
     treasures = Treasures.objects.all()
-    context = {"treasures": treasures}
+    form = TreasureForm()
+    context = {"treasures": treasures, "form": form}
     return render(request=request, template_name="index.html", context=context)
 
 
