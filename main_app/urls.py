@@ -1,4 +1,6 @@
 from django.conf.urls import url
+from django.conf import settings
+from django.views.static import serve
 from . import views
 
 urlpatterns = [
@@ -6,3 +8,9 @@ urlpatterns = [
     url(regex=r'([0-9]+)/$', view=views.detail, name="detail"),
     url(regex=r'post_url/$', view=views.post_treasure, name="post_treasure")
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += [
+        url('^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT})
+    ]
