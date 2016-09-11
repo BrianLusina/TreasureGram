@@ -30,11 +30,11 @@ def post_treasure(request):
     if form.is_valid():
         # reads all the form data and saves it to the database
         form.save(commit=True)
-        # altenatively, if subclassing TreasureForm to Form
+        # alternatively, if subclassing TreasureForm to Form
         # treasure = Treasures(name=form.cleaned_data['name'],
         #                      value=form.cleaned_data['value'],
         #                      material=form.cleaned_data['material'],
         #                      location=form.cleaned_data['location'],
         #                      img_url=form.cleaned_data['img_url'])
-        #treasure.save()
+        # treasure.save()
     return HttpResponseRedirect('/')
