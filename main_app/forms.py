@@ -10,7 +10,7 @@ class TreasureForm(forms.ModelForm):
     """
     class Meta:
         model = Treasures
-        fields = ['name', 'value', 'material', "location", "img_url"]
+        fields = ['name', 'value', 'material', "location", "image"]
 
 
 # subclassing form to Form class
