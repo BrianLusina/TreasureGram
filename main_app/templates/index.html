@@ -17,10 +17,13 @@
         </div>
       </a>
       {% endfor %}
-      <form action="post_url/" method="post">
-          {% csfr_token %}
-          {{ form }}
-          <input type="submit" value="Submit"/>
-      </form>
   </main>
+
+      <div class="row">
+          <form action="post_url/" method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <input type="submit" value="Submit"/>
+          </form>
+      </div>
 {% endblock %}
