@@ -67,12 +67,28 @@ def login_view(request):
     """
     Performs 2 functions,
         1. checks whether the request is a post, then authenticate username ana password
+            pass in the POST request to the loginform
+            check if the form is valid, then clean data for username and password before authenticating
         2. else display the loginform
     :param request: the request to be handles by this view
     :return: the rendered template
     """
     if request.method == "POST":
-
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            u = form.cleaned_data["username"]
+            p = form.cleaned_data["password"]
+            user = authenticate(username=u, password=p)
+            if user is not None:
+                if user.is_active:
+                    # if user is active, use a built in function to login the user
+                    login(request=request, user=user)
+                    # redirect to home page
+                    HttpResponseRedirect('/')
+                else:
+                    print("user was disabled")
+            else:
+                print("The username and password are incorrect")
     else:
         form = LoginForm
         context = {"form": form}
