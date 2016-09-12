@@ -4,21 +4,21 @@
 {% block content %}
   <main class="expanded row">
       {% for treasure in treasures %}
-      <a href="/{{ treasure.id }}/" target="_blank">
-        <div class="small-4 columns treasure-card">
-            <div class="row">
-                <h3 class="treasure-title">{{ treasure.name }}</h3>
-                <a href="/user/{{treasure.user.username}}/">
-                    by: {{ treasure.user.username }}
-                </a>
-            </div>
+      <div class="small-4 columns treasure-card">
+        <div class="row">
+            <h3 class="treasure-title">{{ treasure.name }}</h3>
+            <a href="/user/{{treasure.user.username}}/">
+                by: {{ treasure.user.username }}
+            </a>
+        </div>
+        <a href="/{{ treasure.id }}/" target="_blank">
             <div class="row">
                 <div class="treasure-photo">
                     <img src="{{ treasure.image.url }}" height="100">
                 </div>
             </div>
+          </a>
         </div>
-      </a>
       {% endfor %}
   </main>
 
