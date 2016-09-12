@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from .models import Treasures, User
 from .forms import TreasureForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
@@ -104,3 +104,22 @@ def logout_view(request):
     """
     logout(request=request)
     return HttpResponseRedirect('/')
+
+
+# handles like treasure requests sent from AJAX
+def like_treasure(request):
+    """
+    Get the treasure id from the AJAX request and check for it in the database, if if exists add 1 to it
+    save the entry
+    :param request: request received from AJAX
+    :return: HttpResponse passing in the likes since AJAX is expecting that
+    """
+    treasure_id = request.GET.get("treasure_id", None)
+    likes = 0
+    if treasure_id:
+        treasure = Treasures.objects.get(id=int(treasure_id))
+        if treasure is not None:
+            likes = treasure.likes + 1
+            treasure.likes = likes
+            treasure.save()
+    return HttpResponse(likes)

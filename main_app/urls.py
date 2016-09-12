@@ -10,6 +10,7 @@ urlpatterns = [
     url(regex=r'user/(\w+)/$', view=views.profile, name="profile"),
     url(regex=r'login/$', view=views.login_view, name="login"),
     url(regex=r'logout/$', view=views.logout_view, name="logout"),
+    url(regex=r'like_treasure/$', view=views.like_treasure, name="like_treasure")
 ]
 
 
