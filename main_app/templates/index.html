@@ -19,6 +19,12 @@
             </div>
           </a>
         </div>
+      <!--like button-->
+      <button id="likes" data-id="{{ treasure.id }}">
+          {% if treasure.likes > 0 %}
+            {{ treasure.likes }}
+          {% endif %}
+      </button>
       {% endfor %}
   </main>
 
