@@ -22,3 +22,7 @@ class TreasureForm(forms.ModelForm):
 #     img_url = forms.CharField(label="Image URL", max_length=300)
 
 
+# login form
+class LoginForm(forms.Form):
+    username = forms.CharField(label="Username", max_length=84)
+    password = forms.CharField(widget=forms.PasswordInput())

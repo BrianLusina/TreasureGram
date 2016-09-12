@@ -59,3 +59,5 @@ def profile(request, username):
     treasures = Treasures.objects.filter(user=user)
     context = {"username": username, "treasures": treasures}
     return render(request=request, template_name="profile.html", context=context)
+
+def login_view():
