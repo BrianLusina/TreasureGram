@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from .models import Treasures
+from .models import Treasures, User
 from .forms import TreasureForm
 
 
@@ -58,4 +58,4 @@ def profile(request, username):
     user = User.objects.get(username=username)
     treasures = Treasures.objects.filter(user=user)
     context = {"username": username, "treasures": treasures}
-    render(request=request, template_name="profile.html", context=context)
+    return render(request=request, template_name="profile.html", context=context)
