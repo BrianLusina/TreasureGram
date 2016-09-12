@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .models import Treasures, User
-from .forms import TreasureForm
+from .forms import TreasureForm, LoginForm
+from django.contrib.auth import authenticate, login, logout
 
 
 # home page for the main app
@@ -60,4 +61,19 @@ def profile(request, username):
     context = {"username": username, "treasures": treasures}
     return render(request=request, template_name="profile.html", context=context)
 
-def login_view():
+
+# handles login view
+def login_view(request):
+    """
+    Performs 2 functions,
+        1. checks whether the request is a post, then authenticate username ana password
+        2. else display the loginform
+    :param request: the request to be handles by this view
+    :return: the rendered template
+    """
+    if request.method == "POST":
+
+    else:
+        form = LoginForm
+        context = {"form": form}
+        return render(request=request, template_name="login.html", context=context)
