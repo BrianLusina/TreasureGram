@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h1>Login</h1>
+
+<!--. means post back to the same URL, which will work since the login view handles both post and get requests-->
+<form method="post" action=".">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Login"/>
+
+</form>
+{% endblock %}
