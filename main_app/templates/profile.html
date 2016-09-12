@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<h1>{{ username }}</h1>
+
+  <main class="expanded row">
+      {% for treasure in treasures %}
+      <a href="/{{ treasure.id }}/" target="_blank">
+        <div class="small-4 columns treasure-card">
+            <div class="row">
+                <h3 class="treasure-title">{{ treasure.name }}</h3>
+            </div>
+            <div class="row">
+                <div class="treasure-photo">
+                    <img src="{{ treasure.image.url }}" height="100">
+                </div>
+            </div>
+        </div>
+      </a>
+      {% endfor %}
+  </main>
+
+{% endblock %}
