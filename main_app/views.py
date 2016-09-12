@@ -22,8 +22,8 @@ def post_treasure(request):
     Create a form and link it to the posted data
     provide form with access to uploaded files to save image
     check if form is valid then clean the data before saving the data in the database
+    The form will not commit the changes until it assigns a user to the particular changes
     Redirect to home page even if the form is not valid.
-
     :param request:
     :return:
     """
@@ -31,7 +31,9 @@ def post_treasure(request):
     # check if the form is valid
     if form.is_valid():
         # reads all the form data and saves it to the database
-        form.save(commit=True)
+        treasure = form.save(commit=False)
+        treasure.user = request.user
+        treasure.save()
         # alternatively, if subclassing TreasureForm to Form
         # treasure = Treasures(name=form.cleaned_data['name'],
         #                      value=form.cleaned_data['value'],
