@@ -42,3 +42,20 @@ def post_treasure(request):
         #                      img_url=form.cleaned_data['img_url'])
         # treasure.save()
     return HttpResponseRedirect('/')
+
+
+# routes user to a particular user profile
+def profile(request, username):
+    """
+    We look up the user object in the User Model by its username
+    get all the treasures associated with that user by using a QuerySet filter to look up all the treasures
+    associated with that user.
+    Then pass the username and treasures to the template for rendering
+    :param request: the request being handled
+    :param username: the user name to check for
+    :return:
+    """
+    user = User.objects.get(username=username)
+    treasures = Treasures.objects.filter(user=user)
+    context = {"username": username, "treasures": treasures}
+    render(request=request, template_name="profile.html", context=context)
