@@ -19,8 +19,7 @@
             </div>
           </a>
         <!--like button-->
-        <button id="likes" data-id="{{ treasure.id }}">
-            <i class="fi-heart"></i>
+        <button class = "fi-heart" id="likes" data-id="{{ treasure.id }}">
               {% if treasure.likes > 0 %}
                 {{ treasure.likes }}
               {% endif %}
