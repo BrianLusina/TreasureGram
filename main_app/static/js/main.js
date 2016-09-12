@@ -11,7 +11,7 @@ $(document).ready(function(){
         $.ajax({
             url:'/like_treasure/',
             type:"POST",
-            data:{treasure_id: element.attr("data_id")},
+            data:{treasure_id: $(this).attr("data-id")},
             success: function(response){
                         element.html(" " + response);
                       }
