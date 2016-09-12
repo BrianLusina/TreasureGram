@@ -84,7 +84,7 @@ def login_view(request):
                     # if user is active, use a built in function to login the user
                     login(request=request, user=user)
                     # redirect to home page
-                    HttpResponseRedirect('/')
+                    return HttpResponseRedirect('/')
                 else:
                     print("user was disabled")
             else:
