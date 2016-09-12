@@ -93,3 +93,14 @@ def login_view(request):
         form = LoginForm
         context = {"form": form}
         return render(request=request, template_name="login.html", context=context)
+
+
+# logs out the user
+def logout_view(request):
+    """
+    Logs out the user and redirects to the home page
+    :param request:
+    :return: redirect to the home page
+    """
+    logout(request=request)
+    return HttpResponseRedirect('/')
