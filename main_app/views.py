@@ -114,7 +114,7 @@ def like_treasure(request):
     :param request: request received from AJAX
     :return: HttpResponse passing in the likes since AJAX is expecting that
     """
-    treasure_id = request.GET.get("treasure_id", None)
+    treasure_id = request.POST.get("treasure_id", None)
     likes = 0
     if treasure_id:
         treasure = Treasures.objects.get(id=int(treasure_id))
