@@ -8,6 +8,9 @@
         <div class="small-4 columns treasure-card">
             <div class="row">
                 <h3 class="treasure-title">{{ treasure.name }}</h3>
+                <a href="/user/{{treasure.user.username}}/">
+                    by: {{ treasure.user.username }}
+                </a>
             </div>
             <div class="row">
                 <div class="treasure-photo">
