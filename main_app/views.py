@@ -122,4 +122,5 @@ def like_treasure(request):
             likes = treasure.likes + 1
             treasure.likes = likes
             treasure.save()
-        return HttpResponse(likes)
+
+    return HttpResponse(likes)
