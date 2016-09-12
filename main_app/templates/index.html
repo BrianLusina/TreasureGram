@@ -18,13 +18,14 @@
                 </div>
             </div>
           </a>
-        </div>
-      <!--like button-->
-      <button class="fi-heart" id="likes" data-id="{{ treasure.id }}">
-          {% if treasure.likes > 0 %}
-            {{ treasure.likes }}
-          {% endif %}
-      </button>
+        <!--like button-->
+        <button id="likes" data-id="{{ treasure.id }}">
+            <i class="fi-heart"></i>
+              {% if treasure.likes > 0 %}
+                {{ treasure.likes }}
+              {% endif %}
+        </button>
+      </div>
       {% endfor %}
   </main>
 
