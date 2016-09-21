@@ -1,1 +1,1 @@
-web: sh -c "cd main_app && gunicorn TreasureGram.wsgi"
+web: gunicorn TreasureGram.wsgi
