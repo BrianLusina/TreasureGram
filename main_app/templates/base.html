@@ -3,20 +3,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
     <title>TreasureGram</title>
-    <!--Foundation-->
-    <link rel="stylesheet" type="text/css" href="{% static 'foundation.min.css' %}">
+    <!--CSS RESET-->
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'foundation-icons/foundation-icons.css' %}" />
+
+
 </head>
 <body>
 
 <header>
+    <h1>TreasureGram</h1>
     <div class="row">
       <nav class="small-12 columns" role="navigation">
+<!--
           <a href="/">
             <img class="thumbnail" src="{% static 'images/logo.png' %}" height="90">
           </a>
+-->
           <!--use a url tag name of the url and any other parameters
           So, if the username is Brian, the url will be localhost:8000/Brian-->
           {% if user.is_authenticated %}
@@ -31,15 +40,17 @@
 
 {% block content %}
 {% endblock %}
-
+<!--
 <footer class="footer container text-center" role="contentinfo">
   <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
   © TreasureGram 2016
   <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
-</footer>
+</footer>-->
 
 <!--SCRIPTS-->
-<script src="{% static 'js/vendor/jquery-3.0.0.min.js'%}"></script>
-<script src="{% static 'js/main.js'%}"></script>
+<script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+<script src="{% static 'js/velocity.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery-3.0.0.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
