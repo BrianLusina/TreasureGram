@@ -86,9 +86,9 @@ def login_view(request):
                     # redirect to home page
                     return HttpResponseRedirect('/')
                 else:
-                    print("user was disabled")
+                    return HttpResponse("user was disabled")
             else:
-                print("The username and password are incorrect")
+                return HttpResponse("The username and password are incorrect")
     else:
         form = LoginForm
         context = {"form": form}
