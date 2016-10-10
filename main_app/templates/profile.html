@@ -10,13 +10,12 @@
                 <li>
                     <figure>
                         {% if treasure.image.url == None %}
-                            <img src="images/6.png" alt="{{ treasure.name }}">
+                            <img src="images/6.png'" alt="{{ treasure.name }}">
                         {% else %}
                             <img src="{{ treasure.image.url }}" alt="{{ treasure.name }}">
                         {% endif %}
                         <figcaption>
                             <h3>{{ treasure.name }}</h3>
-                            <span>{{ treasure.user.username }}</span>
                             <a href="/{{ treasure.id }}/">Take a look</a>
                         </figcaption>
                     </figure>
