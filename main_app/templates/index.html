@@ -1,58 +1,24 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-
 {% block content %}
-      <ul class="cd-items cd-container">
-          {% for treasure in treasures %}
-            <li class="cd-item">
-                <a href="/{{ treasure.id }}/" target="_blank">
-                  {% if treasure.image.url == None %}
-                    <img src="{{ treasure.image.url }}" alt="{{ treasure.name }}">
-                  {% else %}
+    <ul class="grid cs-style-7">
+        {% for treasure in treasures %}
+        <li>
+            <figure>
+                {% if treasure.image.url == None %}
+                    <img src="images/6.png" alt="{{ treasure.name }}">
+                {% else %}
                     <img src="{% static 'images/item-1.jpg' %}" alt="{{ treasure.name }}">
-                  {% endif %}
-                </a>
-                <a href="#0" class="cd-trigger">
-                    By: {{ treasure.user.username }}
-                </a>
-            </li> <!-- cd-item -->
-          {% endfor %}
-      </ul>
-
-      <!--QUICK VIEW-->
-      <div class="cd-quick-view">
-		<div class="cd-slider-wrapper">
-			<ul class="cd-slider">
-				<li>
-                    <img src="{% static 'images/item-3.jpg' %}" alt="Product 3">
-                </li>
-			</ul> <!-- cd-slider -->
-			<ul class="cd-slider-navigation">
-				<li><a class="cd-next" href="#0">Prev</a></li>
-				<li><a class="cd-prev" href="#0">Next</a></li>
-			</ul> <!-- cd-slider-navigation -->
-		</div> <!-- cd-slider-wrapper -->
-
-		<div class="cd-item-info">
-			<h2>{{ treasure.name }}</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit.</p>
-			<ul class="cd-item-action">
-				<li>
-                    <!--like button-->
-                    <button class = "add-to-cart fi-heart treasure-likes" id="likes" data-id="{{ treasure.id }}">
-                        {% if treasure.likes > 0 %}
-                            {{ treasure.likes }}
-                        {% endif %}
-                    </button>
-                </li>
-				<li>
-                    <a href="/user/{{treasure.user.username}}/">Learn more</a>
-                </li>
-			</ul> <!-- cd-item-action -->
-		</div> <!-- cd-item-info -->
-		<a href="#0" class="cd-close">Close</a>
-      </div> <!-- cd-quick-view -->
-
+                {% endif %}
+                <figcaption>
+                    <h3>Game Center</h3>
+                    <span>By: {{ treasure.user.username }}</span>
+                    <a href="/{{ treasure.id }}/">Take a look</a>
+                </figcaption>
+            </figure>
+        </li>
+        {% endfor %}
+    </ul>
 <!--<div class="row">
           <form enctype="multipart/form-data" action="post_url/" method="post">
               {% csrf_token %}
