@@ -16,8 +16,8 @@
                     <img src="{% static 'images/item-1.jpg' %}" alt="{{ treasure.name }}">
                   {% endif %}
                 </a>
-                <a href="#0" class="cd-trigger">Quick View
-                    by: {{ treasure.user.username }}
+                <a href="#0" class="cd-trigger">
+                    By: {{ treasure.user.username }}
                 </a>
             </li> <!-- cd-item -->
           {% endfor %}
