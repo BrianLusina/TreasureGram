@@ -80,7 +80,7 @@ html, body {
 
 header {
   position: relative;
-  height: 25px;
+  height: 160px;
   line-height: 170px;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -102,7 +102,7 @@ header h1 {
 }
 @media only screen and (min-width: 1024px) {
   header {
-    line-height: 20px;
+    line-height: 220px;
   }
 }
 
