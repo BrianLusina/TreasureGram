@@ -8,11 +8,11 @@
                 {% if treasure.image.url == None %}
                     <img src="images/6.png" alt="{{ treasure.name }}">
                 {% else %}
-                    <img src="{% static 'images/item-1.jpg' %}" alt="{{ treasure.name }}">
+                    <img src="{% static 'images/1.png' %}" alt="{{ treasure.name }}">
                 {% endif %}
                 <figcaption>
-                    <h3>Game Center</h3>
-                    <span>By: {{ treasure.user.username }}</span>
+                    <h3>{{ treasure.name }}</h3>
+                    <span>{{ treasure.user.username }}</span>
                     <a href="/{{ treasure.id }}/">Take a look</a>
                 </figcaption>
             </figure>
