@@ -4,18 +4,20 @@ from django.views.static import serve
 from . import views
 
 urlpatterns = [
-    url(regex=r'$', view=views.index, name="index"),
-    url(regex=r'([0-9]+)/$', view=views.detail, name="detail"),
-    url(regex=r'post_url/$', view=views.post_treasure, name="post_treasure"),
-    url(regex=r'user/(\w+)/$', view=views.profile, name="profile"),
-    url(regex=r'login/$', view=views.login_view, name="login"),
-    url(regex=r'logout/$', view=views.logout_view, name="logout"),
-    url(regex=r'like_treasure/$', view=views.like_treasure, name="like_treasure")
+    url(r'^$', views.index, name='index'),
+    url(r'^user/(\w+)/$', views.profile, name='profile'),
+    url(r'post_url/', views.post_treasure, name='post_treasure'),
+    url(r'^([0-9]+)/$', views.detail, name='detail'),
+    url(r'^login/$', views.login_view, name='Login'),
+    url(r'^logout/$', views.logout_view, name='Logout'),
+    url(r'^like_treasure/$', views.like_treasure, name='like_treasure'),
 ]
 
-
 # sends any URL that matches media/ to a built in Django view called static.serve
+# add to the bottom of your file
 if settings.DEBUG:
     urlpatterns += [
-        url('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
+        url(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        }),
     ]

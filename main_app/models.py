@@ -4,6 +4,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+def get_image_path(instance, filename):
+    return '/'.join(['treasure_images', str(instance.name), filename])
+
+
 # Create your models here.
 class Treasures(models.Model):
     """

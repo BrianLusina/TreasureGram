@@ -1,7 +1,12 @@
-from django.shortcuts import render, HttpResponseRedirect, HttpResponse
-from .models import Treasures, User
-from .forms import TreasureForm, LoginForm
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.core.urlresolvers import reverse
+
+from .models import Treasures
+from .forms import TreasureForm, LoginForm
 
 
 # home page for the main app
@@ -28,21 +33,23 @@ def post_treasure(request):
     :param request:
     :return:
     """
-    form = TreasureForm(request.POST, request.FILES)
-    # check if the form is valid
-    if form.is_valid():
-        # reads all the form data and saves it to the database
-        treasure = form.save(commit=False)
-        treasure.user = request.user
-        treasure.save()
-        # alternatively, if subclassing TreasureForm to Form
-        # treasure = Treasures(name=form.cleaned_data['name'],
-        #                      value=form.cleaned_data['value'],
-        #                      material=form.cleaned_data['material'],
-        #                      location=form.cleaned_data['location'],
-        #                      img_url=form.cleaned_data['img_url'])
-        # treasure.save()
-    return HttpResponseRedirect('/')
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        form = TreasureForm(request.POST, request.FILES)
+        # check if the form is valid
+        if form.is_valid():
+            # reads all the form data and saves it to the database
+            treasure = form.save(commit=False)
+            treasure.user = request.user
+            treasure.save()
+            # alternatively, if subclassing TreasureForm to Form
+            # treasure = Treasures(name=form.cleaned_data['name'],
+            #                      value=form.cleaned_data['value'],
+            #                      material=form.cleaned_data['material'],
+            #                      location=form.cleaned_data['location'],
+            #                      img_url=form.cleaned_data['img_url'])
+            # treasure.save()
+        return HttpResponseRedirect('/')
 
 
 # routes user to a particular user profile
@@ -56,7 +63,7 @@ def profile(request, username):
     :param username: the user name to check for
     :return:
     """
-    user = User.objects.get(username=username)
+    user = get_object_or_404(User.objects,username=username)
     treasures = Treasures.objects.filter(user=user)
     context = {"username": username, "treasures": treasures}
     return render(request=request, template_name="profile.html", context=context)
@@ -82,12 +89,15 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     # if user is active, use a built in function to login the user
+                    print("User is valid, active and authenticated")
                     login(request=request, user=user)
                     # redirect to home page
                     return HttpResponseRedirect('/')
                 else:
+                    print("The password is valid, but the account has been disabled!")
                     return HttpResponse("user was disabled")
             else:
+                print("The username and password were incorrect.")
                 return HttpResponse("The username and password are incorrect")
     else:
         form = LoginForm
