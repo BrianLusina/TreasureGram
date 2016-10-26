@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block content %} 
+{% block content %}
   <!-- Creating a row for treasure panels -->
 	<div class="row">
 	<!-- Looping over each treasure in the treasures list -->
@@ -12,7 +12,9 @@
 				<!-- Adding treasure title by username -->
         <div class="panel-heading">
           <h3 class="panel-title">{{ treasure.name }}</h3>
-          <a class="panel-username" href="/user/{{treasure.user.username}}/">by: {{ treasure.user.username }}</a>
+          <a class="panel-username" href="/user/{{treasure.user.username}}/">
+              by: {{ treasure.user.username }}
+          </a>
         </div>
 				<!-- Adding treasure image -->
         <div class="panel-body">
