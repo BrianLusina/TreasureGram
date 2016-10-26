@@ -118,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GMT'
 
 USE_I18N = True
 
@@ -137,11 +137,7 @@ STATIC_URL = '/static/'
 # path to hold user uploaded files, ie TreasureGram/media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # serving the media from MEDIA_ROOT
-# MEDIA_URL = '/media/'
-
-# Extra places for collectstatic to find static files.
-BASE_DIR = os.path.join(PROJECT_ROOT, "../main_app")
+MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
-
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
