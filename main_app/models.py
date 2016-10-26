@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 def get_image_path(instance, filename):
-    return '/'.join(['treasure_images', str(instance.name), filename])
+    return '/'.join(['media/treasure_images', str(instance.name), filename])
 
 
 # Create your models here.
@@ -20,7 +20,7 @@ class Treasures(models.Model):
     material = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     # location in the media directory to add images to and a default image in case it is None
-    image = models.ImageField(upload_to='treasure_images', default='media/default.png')
+    image = models.ImageField(upload_to='media/treasure_images', default='media/default.png')
     likes = models.IntegerField(default=0)
 
     def __str__(self):

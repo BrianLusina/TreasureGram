@@ -1,45 +1,12 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-		<meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TreasureGram | Login </title>
+{% block content %}
 
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<script src="{% static 'js/vendor/modernizr.js' %}"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'loginstyle.css' %}">
+<h1>Login</h1>
+<form method="post" action=".">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
 
-        <!--[if lte IE 7]>
-        <style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
-		<style>
-			@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
-			body {
-				background: #563c55 no-repeat center top;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				background-size: cover;
-			}
-			.container > header h1,
-			.container > header h2 {
-				color: #fff;
-				text-shadow: 0 1px 1px rgba(0,0,0,0.7);
-			}
-		</style>
-    </head>
-    <body>
-        <div class="container">
-
-            <section class="main">
-                <!--. means post back to the same URL, which will work since the login view handles both post and get requests-->
-				<form class="form-3" method="post" action="/login/">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Login"/>
-				</form>​
-			</section>
-
-        </div>
-    </body>
-</html>
+{% endblock %}
