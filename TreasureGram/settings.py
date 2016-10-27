@@ -27,7 +27,7 @@ SECRET_KEY = '=van23tyn_tzxqa&14$8vxey@o3rl_**s=$f0vq^fa)%)@sc+l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['lutreasuregram.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
