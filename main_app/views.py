@@ -63,7 +63,7 @@ def profile(request, username):
     :param username: the user name to check for
     :return:
     """
-    user = get_object_or_404(User.objects,username=username)
+    user = get_object_or_404(User.objects, username=username)
     treasures = Treasures.objects.filter(user=user)
     context = {"username": username, "treasures": treasures}
     return render(request=request, template_name="profile.html", context=context)
@@ -112,10 +112,12 @@ def signup_view(request):
     :return:
     """
     if request.method == "POST":
-        form = LoginForm(request.POST)
+        form = UserCreationForm(request.POST)
+        # form = SignUpForm(request.POST)
         if form.is_valid():
             u = form.cleaned_data["username"]
             p = form.cleaned_data["password"]
+            rp = form.cleaned_data["retype_pass"]
             user = authenticate(username=u, password=p)
             if user is not None:
                 if user.is_active:
@@ -131,9 +133,9 @@ def signup_view(request):
                 print("The username and password were incorrect.")
                 return HttpResponse("The username and password are incorrect")
     else:
-        form = LoginForm
+        form = UserCreationForm
         context = {"form": form}
-    return render(request=request, template_name="signup.html", context=context)
+        return render(request=request, template_name="signup.html", context=context)
 
 
 # logs out the user
@@ -145,8 +147,6 @@ def logout_view(request):
     """
     logout(request=request)
     return HttpResponseRedirect('/')
-
-
 
 
 # handles like treasure requests sent from AJAX
