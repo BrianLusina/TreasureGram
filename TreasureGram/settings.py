@@ -26,7 +26,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = '=van23tyn_tzxqa&14$8vxey@o3rl_**s=$f0vq^fa)%)@sc+l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -100,11 +100,6 @@ DATABASES['default'].update(db_from_env)
 
 SECURE_PROXY_SSL_SERVER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# try:
-#     from .local_settings import *
-# except ImportError:
-#     pass
-#
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
