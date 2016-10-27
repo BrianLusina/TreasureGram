@@ -107,31 +107,25 @@ def login_view(request):
 
 def signup_view(request):
     """
-    Handles the sign up view
+    Handles the sign up view, creates a new user using the User object
     :param request:
     :return:
     """
     if request.method == "POST":
         form = UserCreationForm(request.POST)
-        # form = SignUpForm(request.POST)
         if form.is_valid():
             u = form.cleaned_data["username"]
-            p = form.cleaned_data["password"]
-            rp = form.cleaned_data["retype_pass"]
-            user = authenticate(username=u, password=p)
-            if user is not None:
-                if user.is_active:
-                    # if user is active, use a built in function to login the user
-                    print("User is valid, active and authenticated")
-                    login(request=request, user=user)
-                    # redirect to home page
-                    return HttpResponseRedirect('/')
-                else:
-                    print("The password is valid, but the account has been disabled!")
-                    return HttpResponse("user was disabled")
+            p1 = form.cleaned_data["password1"]
+            p2 = form.cleaned_data["password2"]
+            if p1 != p2:
+                return HttpResponse("Passwords do not match")
             else:
-                print("The username and password were incorrect.")
-                return HttpResponse("The username and password are incorrect")
+                # create the new user
+                user = User.objects.create_user(username=u, password=p1)
+                user.save()
+                print("User is valid, active and authenticated")
+                # redirect to home page
+                return HttpResponseRedirect('/')
     else:
         form = UserCreationForm
         context = {"form": form}
