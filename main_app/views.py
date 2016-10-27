@@ -119,11 +119,14 @@ def signup_view(request):
             user = authenticate(username=form.cleaned_data.get('username'),
                                 password=form.cleaned_data.get('password1'))
             login(request, user)
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect('/')
+        else:
+            context = {"form": form}
+            return render(request=request, template_name="signup.html", context=context)
     else:
         form = UserCreationForm()
         context = {"form": form}
-        return render_to_response(template_name="signup.html", context=context)
+        return render(request=request,template_name="signup.html", context=context)
 
 
 # logs out the user
