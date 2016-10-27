@@ -18,3 +18,9 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "TreasureGram.settings")
 # application = get_wsgi_application()
 # application = DjangoWhiteNoise(application)
 application = Cling(get_wsgi_application())
+
+
+# web: python manage.py collectstatic --noinput; gunicorn_django --workers=4 --bind=0.0.0.0:$PORT TreasureGram.settings
+# web: gunicorn TreasureGram.wsgi
+# web: python manage.py runserver 0.0.0.0:$PORT --noreload
+
