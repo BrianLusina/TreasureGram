@@ -83,11 +83,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'TreasureGram.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-# DATABASES = {'default': dj_database_url.config()}
 
 DATABASES = {
     'default': {
@@ -95,6 +92,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 SECURE_PROXY_SSL_SERVER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -144,7 +144,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # serving the media from MEDIA_ROOT
 MEDIA_URL = '/'
 
-# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles/')
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
