@@ -25,10 +25,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=van23tyn_tzxqa&14$8vxey@o3rl_**s=$f0vq^fa)%)@sc+l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+"""
+Necessary configuration for Heroku and also it'll import all of your local settings if
+local_settings.py exists.
+"""
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 # Application definition
 
