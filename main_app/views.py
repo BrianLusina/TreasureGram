@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -114,22 +114,16 @@ def signup_view(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            u = form.cleaned_data["username"]
-            p1 = form.cleaned_data["password1"]
-            p2 = form.cleaned_data["password2"]
-            if p1 != p2:
-                return HttpResponse("Passwords do not match")
-            else:
-                # create the new user
-                user = User.objects.create_user(username=u, password=p1)
-                user.save()
-                print("User is valid, active and authenticated")
-                # redirect to home page
-                return HttpResponseRedirect('/')
+            # create the new user
+            user = form.save()
+            user = authenticate(username=form.cleaned_data.get('username'),
+                                password=form.cleaned_data.get('password1'))
+            login(request, user)
+            return HttpResponseRedirect(reverse('index'))
     else:
-        form = UserCreationForm
+        form = UserCreationForm()
         context = {"form": form}
-        return render(request=request, template_name="signup.html", context=context)
+        return render_to_response(template_name="signup.html", context=context)
 
 
 # logs out the user
