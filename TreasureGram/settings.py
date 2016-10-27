@@ -100,11 +100,11 @@ DATABASES['default'].update(db_from_env)
 
 SECURE_PROXY_SSL_SERVER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     pass
+#
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
