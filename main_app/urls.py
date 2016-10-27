@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'post_url/', views.post_treasure, name='post_treasure'),
     url(r'^([0-9]+)/$', views.detail, name='detail'),
     url(r'^login/$', views.login_view, name='Login'),
+    url(r'^signup/$', views.signup_view, name="SignUp"),
     url(r'^logout/$', views.logout_view, name='Logout'),
     url(r'^like_treasure/$', views.like_treasure, name='like_treasure'),
 ]

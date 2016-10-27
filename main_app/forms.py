@@ -26,3 +26,12 @@ class TreasureForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(label="Username", max_length=84)
     password = forms.CharField(widget=forms.PasswordInput())
+
+
+class SignUpForm(forms.Form):
+    """
+    Sign up form
+    """
+    username = forms.CharField(label="Username", max_length=84)
+    password = forms.CharField(forms.PasswordInput())
+    retype_pass = forms.CharField(forms.PasswordInput())

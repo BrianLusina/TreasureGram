@@ -105,6 +105,37 @@ def login_view(request):
         return render(request=request, template_name="login.html", context=context)
 
 
+def signup_view(request):
+    """
+    Handles the sign up view
+    :param request:
+    :return:
+    """
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            u = form.cleaned_data["username"]
+            p = form.cleaned_data["password"]
+            user = authenticate(username=u, password=p)
+            if user is not None:
+                if user.is_active:
+                    # if user is active, use a built in function to login the user
+                    print("User is valid, active and authenticated")
+                    login(request=request, user=user)
+                    # redirect to home page
+                    return HttpResponseRedirect('/')
+                else:
+                    print("The password is valid, but the account has been disabled!")
+                    return HttpResponse("user was disabled")
+            else:
+                print("The username and password were incorrect.")
+                return HttpResponse("The username and password are incorrect")
+    else:
+        form = LoginForm
+        context = {"form": form}
+    return render(request=request, template_name="signup.html", context=context)
+
+
 # logs out the user
 def logout_view(request):
     """
@@ -114,6 +145,8 @@ def logout_view(request):
     """
     logout(request=request)
     return HttpResponseRedirect('/')
+
+
 
 
 # handles like treasure requests sent from AJAX
