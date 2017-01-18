@@ -1,5 +1,7 @@
 # Treasure Gram
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e64c7011ff4c4be4bfd91d6a90d49f46)](https://www.codacy.com/app/BrianLusina/TreasureGram?utm_source=github.com&utm_medium=referral&utm_content=BrianLusina/TreasureGram&utm_campaign=badger)
+
 Small sample Django application on Treasures discovered by some adventurous treasurers.
 
 ## Project Structure
